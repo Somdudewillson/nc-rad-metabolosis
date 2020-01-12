@@ -12,6 +12,7 @@ import somdudewillson.ncradmetabolosis.config.NCRMConfig;
 import somdudewillson.ncradmetabolosis.radiation.RadiationMetabolosisHandler;
 
 public class CommonProxy {
+	@SuppressWarnings("unused")
 	private Logger log = null;
 	
 	public void postInit(FMLPostInitializationEvent postEvent) {

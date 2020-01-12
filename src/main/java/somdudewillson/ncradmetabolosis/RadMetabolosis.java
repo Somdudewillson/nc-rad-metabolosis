@@ -38,8 +38,8 @@ public class RadMetabolosis
      */
     
     
-	public static final String CLIENT_PROXY = "main.java.somdudewillson.ncenvironmentalrads.proxy.ClientProxy";
-	public static final String COMMON_PROXY = "main.java.somdudewillson.ncenvironmentalrads.proxy.CommonProxy";
+	public static final String CLIENT_PROXY = "somdudewillson.ncradmetabolosis.proxy.ClientProxy";
+	public static final String COMMON_PROXY = "somdudewillson.ncradmetabolosis.proxy.CommonProxy";
     
     @Instance
     public static RadMetabolosis instance = new RadMetabolosis();
