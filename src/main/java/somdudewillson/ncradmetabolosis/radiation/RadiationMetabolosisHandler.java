@@ -38,22 +38,32 @@ public class RadiationMetabolosisHandler {
 					if (food.getSaturationLevel() > 0.0f &&
 							NCRMConfig.saturation_dissipation &&
 							NCRMConfig.saturation_max_dissipation > 0.0) {
-						int appliedUnits = (int) Math.floor(Math.min(food.getSaturationLevel(),
-								(NCRMConfig.saturation_max_dissipation*radiation_player_tick_rate)/
-								NCRMConfig.rads_per_saturation));
+						double maxUnitsForFood = food.getSaturationLevel();
+						double maxUnitsForTicks = (NCRMConfig.saturation_max_dissipation*radiation_player_tick_rate)/
+								NCRMConfig.rads_per_saturation;
+						double maxUnitsForRads = (playerRads.getTotalRads()/NCRMConfig.rads_per_saturation);
+						int appliedUnits = (int) Math.floor(Math.min(Math.min(maxUnitsForFood,
+								maxUnitsForTicks), maxUnitsForRads));
 						
 						food.setFoodSaturationLevel(food.getSaturationLevel()-appliedUnits);
-						playerRads.setRadiationLevel(Math.max(playerRads.getRadiationLevel()-
-								(appliedUnits*NCRMConfig.rads_per_saturation), 0.0));
+						
+						double dissipatedRads = -(appliedUnits*NCRMConfig.rads_per_saturation);
+						playerRads.setTotalRads(Math.max(playerRads.getTotalRads()-dissipatedRads, 0.0), false);
+						playerRads.setRadiationLevel(playerRads.getRadiationLevel()-dissipatedRads);
 					} else
 						//-----Hunger dissipation
 						if (NCRMConfig.passive_dissipation_amount > 0) {
-						int appliedTicks = (int) Math.floor(Math.min((food.getFoodLevel()-NCRMConfig.min_food)/(NCRMConfig.exhaustion_cost/4.0)+1,
-								radiation_player_tick_rate));
+							double maxUnitsForFood = (food.getFoodLevel()-NCRMConfig.min_food)/(NCRMConfig.exhaustion_cost/4.0)+1;
+						double maxUnitsForTicks = radiation_player_tick_rate;
+						double maxUnitsForRads = (playerRads.getTotalRads()/NCRMConfig.passive_dissipation_amount);
+						int appliedUnits = (int) Math.floor(Math.min(Math.min(maxUnitsForFood,
+								maxUnitsForTicks), maxUnitsForRads));
 						
-						food.addExhaustion((float) (appliedTicks*NCRMConfig.exhaustion_cost));
-						playerRads.setRadiationLevel(Math.max(playerRads.getRadiationLevel()-
-								(appliedTicks*NCRMConfig.passive_dissipation_amount), 0.0));
+						food.addExhaustion((float) (appliedUnits*NCRMConfig.exhaustion_cost));
+						
+						double dissipatedRads = (appliedUnits*NCRMConfig.passive_dissipation_amount);
+						playerRads.setTotalRads(Math.max(playerRads.getTotalRads()-dissipatedRads, 0.0), false);
+						playerRads.setRadiationLevel(playerRads.getRadiationLevel()-dissipatedRads);
 					}
 					//-----
 					
