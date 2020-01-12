@@ -1,6 +1,6 @@
 # Rad Metabolosis : NuclearCraft Addon
 ## Summary
-Environmental Rads is an addon for NuclearCraft which allows passive dissipation of rads from players in a similar fashion to vanilla passive regen.
+Rad Metabolosis is an addon for NuclearCraft which allows passive dissipation of rads from players in a similar fashion to vanilla passive regen.
 
 CurseForge Page (Recommended download location): https://www.curseforge.com/minecraft/mc-mods/environmental-rads
 
