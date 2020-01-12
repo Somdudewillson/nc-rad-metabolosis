@@ -1,0 +1,14 @@
+[{
+	"modid": "ncradmetabolosis",
+	"name": "Rad Metabolosis : NuclearCraft Addon",
+	"description": "An addon for NuclearCraft which allows passive dissipation of rads from players.",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
+	"url": "",
+	"authorList": ["somdudewillson"],
+	"credits": "Thanks to the original author of NuclearCraft!",
+	"logoFile": "",
+	"screenshots": [],
+	"requiredMods": ["nuclearcraft"],
+	"dependencies": ["nuclearcraft"]
+}]
