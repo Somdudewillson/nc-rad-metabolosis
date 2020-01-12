@@ -2,7 +2,7 @@
 ## Summary
 Rad Metabolosis is an addon for NuclearCraft which allows passive dissipation of rads from players in a similar fashion to vanilla passive regen.
 
-CurseForge Page (Recommended download location): https://www.curseforge.com/minecraft/mc-mods/environmental-rads
+CurseForge Page (Recommended download location): https://www.curseforge.com/minecraft/mc-mods/rad-metabolosis
 
 GitHub Page of NuclearCraft: https://github.com/turbodiesel4598/NuclearCraft
 
